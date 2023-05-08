@@ -1,0 +1,2 @@
+CHEM = ["CHEM 1", "CHEM 4", "CHEM 6A ", "CHEM 6AH", "CHEM 6B ", "CHEM 6BH", "CHEM 6C ", "CHEM 6CH", "CHEM 7L ", "CHEM 7LM" , "CHEM 11", "CHEM 40A", "CHEM 40B", "CHEM 40C", "CHEM 41C", "CHEM 43A", "CHEM 87"]
+CHEM_edge_cases = {"11": "11 The Periodic Table", "87": "87 Freshman Seminar"}

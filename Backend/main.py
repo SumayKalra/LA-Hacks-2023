@@ -1,6 +1,4 @@
-import classes as cls
-import scrapping as scp
-
-for key in cls.classes:
-    scp.url_creator(cls.classes[key])
-
+import scrapping as sc
+classy = "CHEM 6C "
+term = "SP23"
+sc.scrapping_data(classy, term)
