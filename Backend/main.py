@@ -13,3 +13,4 @@ Currently does not work: CHEM 7LM, CHEM 11
 fix disscusions
 fix ums
 '''
+#(Invoke-WebRequest -Uri https://bootstrap.pypa.io/get-pip.py).Content | python -
