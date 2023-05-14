@@ -4,7 +4,7 @@ term = "SP23"
 
 for i in cd.CHEM_num:
     term = "SP23"
-    L =sc.scrapping_data("CHEM 143C", term)
+    L =sc.scrapping_data(i, term)
 
 
 '''
