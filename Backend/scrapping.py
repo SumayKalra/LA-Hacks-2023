@@ -16,9 +16,9 @@ def scrapping_data(input_class, input_term):
     class_num =  cd.CHEM_name[cd.CHEM_num.index(input_class)]
 
     # Start a new Chrome browser instance and navigate to the UCSD Schedule of Classes website
-    time.sleep(0.1)
+    time.sleep(1)
     driver = webdriver.Chrome()
-    time.sleep(0.1)
+    time.sleep(1)
     driver.get("https://act.ucsd.edu/scheduleOfClasses/scheduleOfClassesStudent.htm")
     
     #Term drop down menu
@@ -124,8 +124,11 @@ def scrapping_data(input_class, input_term):
             if not isinstance(name, tuple):
                 lists_disc_index.remove(element)
     
-    for tuples in lists_disc_index:
-        tuples[:] = [[item for item in tpl if item != ' '] for tpl in tuples]
+    try:
+        for tuples in lists_disc_index:
+            tuples[:] = [[item for item in tpl if item != ' '] for tpl in tuples]
+    except TypeError:
+        lists_disc_index = []
     
     disc_index = lists_disc_index
 
@@ -142,7 +145,8 @@ def scrapping_data(input_class, input_term):
     print(disc_index)    
     print()
     driver.quit()
-    
+    return "nothing"
+
 #finds the index of the next class
 def find_next_class_same_page(rows, index_lst, input_class, first_run, next_index,class_table, driver ,page_num, total_pages_num, end_page):
     empty_lst =[]
