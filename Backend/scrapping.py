@@ -199,6 +199,7 @@ def goes_to_next_page(class_num, index_lst, driver, page_num, total_page_num):
     rows = class_table.find_elements(By.TAG_NAME, "tr")
     for row in rows:
         if class_num in row.text:
+            print(row.text)
             index_lst.append(rows.index(row))
     if len(index_lst) == 0:
         if(page_num == 1):
