@@ -1,10 +1,11 @@
 import scrapping as sc
 import classdata as cd
 term = "SP23"
+activate_driver = sc.activate_driver()
 
-for i in cd.CHEM_num:
+for i in cd.CHEM_num[70:]:
     term = "SP23"
-    L =sc.scrapping_data(i, term)
+    L =sc.scrapping_data(i, term, activate_driver)
 
 
 '''

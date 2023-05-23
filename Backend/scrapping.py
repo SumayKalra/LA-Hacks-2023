@@ -9,15 +9,20 @@ count= 0
 #function scrapes data
 'page number issue'
 'scrape through next page'
-def scrapping_data(input_class, input_term):
+
+def activate_driver():
+    driver = webdriver.Chrome()
+    return driver
+
+def scrapping_data(input_class, input_term, driver):
+    if input_class == "END":
+        exit()
     #user inputs
     class_data = input_class.split(" ",1)
     class_name = class_data[0]
     class_num =  cd.CHEM_name[cd.CHEM_num.index(input_class)]
 
     # Start a new Chrome browser instance and navigate to the UCSD Schedule of Classes website
-    time.sleep(1)
-    driver = webdriver.Chrome()
     time.sleep(1)
     driver.get("https://act.ucsd.edu/scheduleOfClasses/scheduleOfClassesStudent.htm")
     
@@ -61,7 +66,10 @@ def scrapping_data(input_class, input_term):
         print(input_class)
         print("No class found for that quarter")
         print()
-        driver.quit()
+        page_button_xpath = '//*[@id="socDisplayCVO"]/div[2]/table/tbody/tr/td[3]/a[1]'
+        page_button = driver.find_element(By.XPATH, page_button_xpath)
+        page_button.click()
+
         return "nothing"
     class_table  = driver.find_element(By.CLASS_NAME,"tbrdr")
     rows = class_table.find_elements(By.TAG_NAME, "tr")
@@ -144,7 +152,12 @@ def scrapping_data(input_class, input_term):
     print(lec_index)
     print(disc_index)    
     print()
-    driver.quit()
+
+    #//*[@id="socDisplayCVO"]/div[2]/table/tbody/tr/td[3]/a[1]
+    page_button_xpath = '//*[@id="socDisplayCVO"]/div[2]/table/tbody/tr/td[3]/a[1]'
+    page_button = driver.find_element(By.XPATH, page_button_xpath)
+    page_button.click()
+
     return "nothing"
 
 #finds the index of the next class
